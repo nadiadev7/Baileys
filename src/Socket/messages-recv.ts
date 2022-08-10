@@ -84,7 +84,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 			}],
 		}
 
-		logger.debug({ call_id, caller: callOfferData[call_id].from, me: authState.creds.me!.id, }, 'rejecting call')
+		logger.debug({ call_id, caller: callOfferData[call_id].from, me: authState.creds.me.id, }, 'rejecting call')
 		await sendNode(stanza)
 	}
 
@@ -640,6 +640,6 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		...sock,
 		sendMessageAck,
 		sendRetryRequest,
-	    rejectCall
+		rejectCall
 	}
 }
