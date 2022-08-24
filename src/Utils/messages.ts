@@ -272,7 +272,7 @@ export const generateWAMessageContent = async(
 ) => {
 	let m: WAMessageContent = {}
 	if('text' in message) {
-		const extContent = { text: message.text, contextInfo: message.contextInfo } as WATextMessage
+		const extContent = { text: message.text } as WATextMessage
 
 		let urlInfo = message.linkPreview
 		if(typeof urlInfo === 'undefined') {
