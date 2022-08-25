@@ -38,7 +38,7 @@
     "@hapi/boom": "latest",
     "axios": "latest",
     "futoin-hkdf": "^1.5.0",
-    "libsignal": "git+https://github.com/BochilGaming/libsignal",
+    "libsignal": "git+https://github.com/PurpShell/libsignal-node#patch-1",
     "music-metadata": "^7.12.3",
     "node-cache": "^5.1.2",
     "pino": "latest",
