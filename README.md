@@ -2,6 +2,8 @@
  
  > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
  
+ **cie copas wkwk**
+ 
  **Read the docs [here](https://adiwajshing.github.io/Baileys)**
  **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
 
