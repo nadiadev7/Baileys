@@ -1,6 +1,6 @@
 {
   "name": "@adiwajshing/baileys",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "description": "WhatsApp API",
   "homepage": "https://github.com/adiwajshing/Baileys",
   "main": "lib/index.js",
@@ -38,7 +38,7 @@
     "@hapi/boom": "latest",
     "axios": "latest",
     "futoin-hkdf": "^1.5.0",
-    "libsignal": "git+https://github.com/BochilGaming/libsignal-node#proto-patch",
+    "libsignal": "git+https://github.com/BochilGaming/libsignal-node#patch-1",
     "music-metadata": "^7.12.3",
     "node-cache": "^5.1.2",
     "pino": "latest",
