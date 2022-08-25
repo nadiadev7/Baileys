@@ -27,7 +27,6 @@ export const useSingleFileAuthState = (filename: string, logger?: Logger): { sta
 	let keys: any = { }
 
 	// save the authentication state to a file
-	try {
 	const saveState = () => {
 		logger && logger.trace('saving auth state')
 		writeFileSync(
@@ -36,9 +35,7 @@ export const useSingleFileAuthState = (filename: string, logger?: Logger): { sta
 			JSON.stringify({ creds, keys }, BufferJSON.replacer, 2)
 		)
 	}
-	} catch {
-		console.log("Gagal load session")
-	}
+	
 	if(existsSync(filename)) {
 		const result = JSON.parse(
 			readFileSync(filename, { encoding: 'utf-8' }),
