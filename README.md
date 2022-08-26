@@ -1,6 +1,10 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 # Baileys Up To Date
  
+ <p align="center">
+<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wabotjs?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+</p>
+
  > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
  
  **cie copas wkwk**
