@@ -2,7 +2,7 @@
 # Baileys Up To Date
  
  <p align="center">
-<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wabotjs?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/baileys?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
 
  > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
@@ -12,11 +12,9 @@
  **Read the docs [here](https://adiwajshing.github.io/Baileys)**
  **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
 
-## Example
+## Example Script Whatsapp Bot MD
 
-Do check out & run [example.ts](https://github.com/adiwajshing/Baileys/blob/master/Example/example.ts) to see an example usage of the library.
-The script covers most common use cases.
-To run the example script, download or clone the repo and then type the following in a terminal:
+[check here](https://github.com/amiruldev20/wabotjs), base plugins with ESM
 1. ``` cd path/to/Baileys ```
 2. ``` yarn ```
 3. 
