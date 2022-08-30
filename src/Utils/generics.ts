@@ -2,7 +2,6 @@ import { Boom } from '@hapi/boom'
 import axios from 'axios'
 import { randomBytes } from 'crypto'
 import { platform, release } from 'os'
-import { Long } from 'protobufjs'
 import { Logger } from 'pino'
 import { proto } from '../../WAProto'
 import { version as baileysVersion } from '../Defaults/baileys-version.json'
@@ -19,7 +18,7 @@ const PLATFORM_MAP = {
 export const Browsers = {
 	ubuntu: browser => ['Ubuntu', browser, '20.0.04'] as [string, string, string],
 	macOS: browser => ['Mac OS', browser, '10.15.7'] as [string, string, string],
-	baileys: browser => ['WhatsKuy', browser, '4.0.0'] as [string, string, string],
+	baileys: browser => ['Baileys', browser, '4.0.0'] as [string, string, string],
 	/** The appropriate browser based on your OS & release */
 	appropriate: browser => [ PLATFORM_MAP[platform()] || 'Ubuntu', browser, release() ] as [string, string, string]
 }
