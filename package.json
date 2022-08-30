@@ -42,7 +42,7 @@
     "music-metadata": "^8.0.1",
     "node-cache": "^5.1.2",
     "pino": "^8.4.2",
-    "protobufjs": "latest",
+    "protobufjs": "^6.11.3",
     "ws": "latest"
   },
   "peerDependencies": {
