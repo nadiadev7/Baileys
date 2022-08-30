@@ -60,6 +60,10 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		return mediaConn
 	}
 
+	/** SET PP LONG **/
+	const setPpLong = async(jid: string) => {
+
+	},
 	/**
      * generic send receipt function
      * used for receipts of phone call, read, delivery etc.
