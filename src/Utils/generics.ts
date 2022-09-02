@@ -136,7 +136,7 @@ export const delayCancellable = (ms: number) => {
 	return { delay, cancel }
 }
 
-export async function promiseTimeout<T>(ms: number | undefined, promise: (resolve: (v?: T)=>void, logger: Logger, reject: (error) => void) => void) {
+export async function promiseTimeout<T>(ms: number | undefined, promise: (resolve: (v?: T)=>void, reject: (error) => void) => void) {
 	if(!ms) {
 		return new Promise (promise)
 	}
@@ -154,7 +154,7 @@ export async function promiseTimeout<T>(ms: number | undefined, promise: (resolv
 					}
 				})
 			))
-			.catch (err => logger.error("[Baileys Amirul Dev] Connection TimeOut, please wait..."))
+			.catch (err => Logger.error("[Baileys Amirul Dev] Connection TimeOut, please wait..."))
 
 		promise (resolve, reject)
 	})
