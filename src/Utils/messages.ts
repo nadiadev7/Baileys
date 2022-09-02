@@ -44,6 +44,7 @@ const MIMETYPE_MAP: { [T in MediaType]: string } = {
 	audio: 'audio/ogg; codecs=opus',
 	sticker: 'image/webp',
 	history: 'application/x-protobuf',
+	'product-image': 'image/jpeg',
 	'md-app-state': 'application/x-protobuf',
 }
 
@@ -146,13 +147,7 @@ export const prepareWAMessageMedia = async(
 		didSaveToTmpPath
 	} = await encryptedStream(uploadData.media, mediaType, requiresOriginalForSomeProcessing)
 	 // url safe Base64 encode the SHA256 hash of the body
-	const fileEncSha256B64 = encodeURIComponent(
-		fileEncSha256.toString('base64')
-			.replace(/\+/g, '-')
-			.replace(/\//g, '_')
-			.replace(/\=+$/, '')
-	)
-
+	const fileEncSha256B64 = fileEncSha256.toString('base64')
 	const [{ mediaUrl, directPath }] = await Promise.all([
 		(async() => {
 			const result = await options.upload(
@@ -281,7 +276,7 @@ export const generateWAMessageContent = async(
 
 		if(urlInfo) {
 			extContent.canonicalUrl = urlInfo['canonical-url']
-			extContent.matchedText = urlInfo['canonical-url']
+			extContent.matchedText = urlInfo['matched-text']
 			extContent.jpegThumbnail = urlInfo.jpegThumbnail
 			extContent.description = urlInfo.description
 			extContent.title = urlInfo.title
@@ -433,10 +428,6 @@ export const generateWAMessageContent = async(
 		m[messageType].contextInfo.mentionedJid = message.mentions
 	}
 
-	if('contextInfo' in message && message) {
-		const [messageType] = Object.keys(m)
-		m[messageType].contextInfo = message.contextInfo
-	}
 	return WAProto.Message.fromObject(m)
 }
 
@@ -752,7 +743,7 @@ const generateContextInfo = () => {
 export const patchMessageForMdIfRequired = (message: proto.IMessage) => {
 	const requiresPatch = !!(
 		message.buttonsMessage
-	        || message.templateMessage
+		// || message.templateMessage
 		|| message.listMessage
 	)
 	if(requiresPatch) {
