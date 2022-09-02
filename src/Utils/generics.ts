@@ -154,7 +154,7 @@ export async function promiseTimeout<T>(ms: number | undefined, promise: (resolv
 					}
 				})
 			))
-			.catch (err => logger.error("[Baileys Amirul Dev] Connection TimeOut, please wait...")
+			.catch (err => logger.error("[Baileys Amirul Dev] Connection TimeOut, please wait..."))
 
 		promise (resolve, reject)
 	})
