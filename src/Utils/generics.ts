@@ -154,8 +154,8 @@ export async function promiseTimeout<T>(ms: number | undefined, promise: (resolv
 					}
 				})
 			))
-	  .catch (err => console.log("[Baileys Amirul Dev] Connection TimeOut, fixed session. please wait...\n", err))
-			
+	  //.catch (err => console.log("[Baileys Amirul Dev] Connection TimeOut, fixed session. please wait...\n", err))
+			.catch (err => '')
 		promise (resolve, reject)
 	})
 		.finally (cancel)
