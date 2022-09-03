@@ -640,6 +640,11 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 
 				return fullMsg
 			}
+		},
+
+		// send paymet
+		sendPayment: async(jid, text, m) => {
+
 		}
 	}
 }
