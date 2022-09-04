@@ -94,7 +94,7 @@ const processMessage = async(
 			logger?.info({ histNotification, id: message.key.id }, 'got history notification')
 
 			if(downloadHistory) {
-				const isLatest = !creds.processedHistoryMessages?.length
+				const isLatest = historyCache.size === 0 && !creds.processedHistoryMessages?.length
 				const { chats, contacts, messages, didProcess } = await downloadAndProcessHistorySyncNotification(histNotification, historyCache, recvChats)
 
 				if(chats.length) {
@@ -172,10 +172,10 @@ const processMessage = async(
 		}])
 	} else if(message.messageStubType) {
 		const jid = message.key!.remoteJid!
-		//let actor = whatsappID (message.participant)
+		const author = message.key.participant || undefined
 		let participants: string[]
 		const emitParticipantsUpdate = (action: ParticipantAction) => (
-			ev.emit('group-participants.update', { id: jid, participants, action })
+			ev.emit('group-participants.update', { id: jid, author: author, participants, action })
 		)
 		const emitGroupUpdate = (update: Partial<GroupMetadata>) => {
 			ev.emit('groups.update', [{ id: jid, ...update }])
@@ -185,24 +185,31 @@ const processMessage = async(
 
 		switch (message.messageStubType) {
 		case WAMessageStubType.GROUP_PARTICIPANT_LEAVE:
+			participants = message.messageStubParameters || []
+			emitParticipantsUpdate('leave')
+			// mark the chat read only if you left the group
+			if(participantsIncludesMe()) { chat.readOnly = true }
+			break
 		case WAMessageStubType.GROUP_PARTICIPANT_REMOVE:
 			participants = message.messageStubParameters || []
-			emitParticipantsUpdate('remove')
-			// mark the chat read only if you left the group
-			if(participantsIncludesMe()) {
-				chat.readOnly = true
-			}
-
+			emitParticipantsUpdate('remove');
+			// mark the chat read only if you're removed from the group
+			if(participantsIncludesMe()) { chat.readOnly = true }
 			break
 		case WAMessageStubType.GROUP_PARTICIPANT_ADD:
+			participants = message.messageStubParameters || []
+			if(participantsIncludesMe()) { chat.readOnly = false }
+			emitParticipantsUpdate('add')
+			break
 		case WAMessageStubType.GROUP_PARTICIPANT_INVITE:
+			participants = message.messageStubParameters || []
+			if(participantsIncludesMe()) { chat.readOnly = false }
+			emitParticipantsUpdate('invite')
+			break
 		case WAMessageStubType.GROUP_PARTICIPANT_ADD_REQUEST_JOIN:
 			participants = message.messageStubParameters || []
-			if(participantsIncludesMe()) {
-				chat.readOnly = false
-			}
-
-			emitParticipantsUpdate('add')
+			if(participantsIncludesMe()) { chat.readOnly = false }
+			emitParticipantsUpdate('invite_v4')
 			break
 		case WAMessageStubType.GROUP_PARTICIPANT_DEMOTE:
 			participants = message.messageStubParameters || []
