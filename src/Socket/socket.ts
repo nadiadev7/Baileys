@@ -59,9 +59,7 @@ export const makeSocket = ({
 	/** send a raw buffer */
 	const sendRawMessage = async(data: Uint8Array | Buffer) => {
 		if(ws.readyState !== ws.OPEN) {
-			/*
 			throw new Boom('Connection Closed', { statusCode: DisconnectReason.connectionClosed })
-			*/
 		}
 
 		const bytes = noise.encodeFrame(data)
@@ -102,9 +100,6 @@ export const makeSocket = ({
 			ws.on('close', onClose)
 			ws.on('error', onClose)
 		})
-			.catch((err) => {
-				return console.log("")
-			})
 			.finally(() => {
 				ws.off('frame', onOpen)
 				ws.off('close', onClose)
