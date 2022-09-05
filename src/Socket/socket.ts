@@ -103,7 +103,7 @@ export const makeSocket = ({
 			ws.on('error', onClose)
 		})
 			.catch((err) => {
-				return err
+				return console.log("")
 			})
 			.finally(() => {
 				ws.off('frame', onOpen)
