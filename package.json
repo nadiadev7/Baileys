@@ -76,7 +76,7 @@
   ],
   "devDependencies": {
     "@adiwajshing/eslint-config": "git+https://github.com/adiwajshing/eslint-config",
-    "@adiwajshing/keyed-db": "^0.2.4",
+    "@adiwajshing/keyed-db": "latest",
     "@types/got": "^9.6.12",
     "@types/jest": "^28.1.8",
     "@types/node": "^18.7.13",
