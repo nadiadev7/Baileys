@@ -1,5 +1,5 @@
 {
-  "name": "Baileys Amirul Dev",
+  "name": "Baileys",
   "version": "4.5.3",
   "description": "WhatsApp API",
   "homepage": "https://github.com/amiruldev20/Baileys",
@@ -29,7 +29,7 @@
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx"
   },
-  "author": "Adhiraj Singh",
+  "author": "Amirul Dev",
   "license": "MIT",
   "repository": {
     "url": "git@github.com:amiruldev20/baileys.git"
