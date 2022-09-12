@@ -428,11 +428,6 @@ export const generateWAMessageContent = async(
 		m[messageType].contextInfo.mentionedJid = message.mentions
 	}
 
-	if('contextInfo' in message && message) {
-		const [messageType] = Object.keys(m)
-		m[messageType].contextInfo = message.contextInfo
-	}
-	
 	return WAProto.Message.fromObject(m)
 }
 
@@ -748,7 +743,7 @@ const generateContextInfo = () => {
 export const patchMessageForMdIfRequired = (message: proto.IMessage) => {
 	const requiresPatch = !!(
 		message.buttonsMessage
-		|| message.templateMessage
+	    || message.templateMessage
 		|| message.listMessage
 	)
 	if(requiresPatch) {

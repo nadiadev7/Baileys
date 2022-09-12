@@ -35,7 +35,7 @@ export const useSingleFileAuthState = (filename: string, logger?: Logger): { sta
 			JSON.stringify({ creds, keys }, BufferJSON.replacer, 2)
 		)
 	}
-	
+
 	if(existsSync(filename)) {
 		const result = JSON.parse(
 			readFileSync(filename, { encoding: 'utf-8' }),

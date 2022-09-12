@@ -144,9 +144,7 @@ export type AnyRegularMessageContent = (
     }
 ) & ViewOnce
 
-export type AnyMessageContent = AnyRegularMessageContent & {
-    contextInfo?: WAContextInfo
-} | {
+export type AnyMessageContent = AnyRegularMessageContent | {
 	forward: WAMessage
 	force?: boolean
 } | {
