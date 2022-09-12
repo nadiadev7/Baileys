@@ -7,8 +7,6 @@
 
  > **Warning**: ini hanyalah repo baileys yang sudah ter update & fix jika ada problem. memudahkan bagi pemula jika ada pull req di repo utama yang belum di acc
  
- **cie copas wkwk**
- 
  **Read the docs [here](https://adiwajshing.github.io/Baileys)**
  **Join the Discord [here](https://discord.gg/WeJM5FP9GG)**
 
@@ -501,7 +499,7 @@ const sendMsg = await sock.sendMessage(id, templateMessage)
         ptt: true,
         /** Should it send as a disappearing messages. 
          * By default 'chat' -- which follows the setting of the chat */
-        ephemeralExpiration: WA_DEFAULT_EPHEMERAL
+        sendEphemeral: 'chat'
     }
     ```
 ## Forwarding Messages
