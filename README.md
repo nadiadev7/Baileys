@@ -14,6 +14,8 @@
 
 [click here](https://github.com/amiruldev20/wabotjs), base plugins with ESM
 
+[CLICK HERE](https://npmjs.com/package/baileys), BAILEYS VERSI PACKAGE
+
 Then import your code using:
 ``` ts 
 // for multi-device
